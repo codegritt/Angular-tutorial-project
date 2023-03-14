@@ -1,5 +1,23 @@
 <h1>Angular app</h1>
 
 
-<app-navbar></app-navbar>
-<app-post [fromParent]="parentMessage"></app-post>
+<app-navbar [fromParent1]="parentMessage1"></app-navbar>
+<app-post [fromParent]="parentMessage" (messageEvent)="receieveMessage($event)"></app-post>
+
+
+<input type="text" (keyup.enter)="onKeyUp(username.value)" #username>
+
+<app-post-form></app-post-form>
+
+<h1>{{postArray}}</h1>
+<button (click)="add()">Add</button>
+<ul>
+  <li>{{postArray[0]}}</li>
+  <li>{{postArray[1]}}</li>
+  <li>{{postArray[2]}}</li>
+  <li>{{postArray[3]}}</li>
+</ul>
+
+<ul *ngFor="let post of postArray">
+{{post}}
+</ul>

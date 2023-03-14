@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-post',
@@ -19,4 +19,15 @@ export class PostComponent {
   fromParent!: String;
 
   messagepost: String="Gokul got a message";
+
+  childMessage: String="from child component";
+
+  messageParent:String="gokul is a gigolo";
+  @Output() messageEvent= new EventEmitter<String>();
+
+
+  sendMessage(){
+    this.messageEvent.emit(this.childMessage);
+    
+  }
 }
